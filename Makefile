@@ -25,9 +25,9 @@ all:
 #	# Disassemble the font and apply the cipher
 	t1disasm org/$(ORIGINAL_FONT).pfb > gen/font.raw
 
-	python sub_cipher.py --f_raw_in gen/font.raw --f_raw_out gen/modified_font.raw --CMAP $(CMAP_FILE)
+	python3 sub_cipher.py --f_raw_in gen/font.raw --f_raw_out gen/modified_font.raw --CMAP $(CMAP_FILE)
 
-	python replace_sub.py --f_text_in $(ORIGINAL_TEX) --f_cmap_in $(CMAP_FILE) --f_text_out $(SUBSTITUTED_TEX)
+	python3 replace_sub.py --f_text_in $(ORIGINAL_TEX) --f_cmap_in $(CMAP_FILE) --f_text_out $(SUBSTITUTED_TEX)
 
 	t1asm gen/modified_font.raw gen/$(F).pfb
 	cp org/cmr12.pfm gen/$(F).pfm

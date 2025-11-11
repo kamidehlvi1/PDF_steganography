@@ -14,7 +14,7 @@ with open(args.f_cmap_in) as FIN:
     CMAP = ast.literal_eval(raw_cmap)
 
 table1,table2 = zip(*CMAP.items())
-trans_table = str.maketrans(''.join(table1), ''.join(table2))
+trans_table = string.maketrans(''.join(table1), ''.join(table2))
 
 with open(args.f_text_in,'r') as FIN:
     raw = FIN.read()
